@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { useStyles } from "./styles";
 
 const Agents = () => {
@@ -11,6 +11,9 @@ const Agents = () => {
       {agents.map((agent: any) => (
         <Grid key={agent.uuid} className={classes.imageContainer}>
           <img src={agent.displayIcon} className={classes.image} />
+          <Typography variant="h5" className={classes.agentName}>
+            {agent.displayName}
+          </Typography>
         </Grid>
       ))}
     </Grid>
