@@ -1,10 +1,20 @@
 import { useLoaderData } from "react-router-dom";
+import { Grid } from "@mui/material";
+import { useStyles } from "./styles";
 
 const Agents = () => {
-  const agents = useLoaderData();
+  const classes = useStyles();
+  const agents: any = useLoaderData();
 
-  console.log("agents", agents);
-  return <div>Agents</div>;
+  return (
+    <Grid className={classes.root}>
+      {agents.map((agent: any) => (
+        <Grid key={agent.uuid} className={classes.imageContainer}>
+          <img src={agent.displayIcon} className={classes.image} />
+        </Grid>
+      ))}
+    </Grid>
+  );
 };
 
 export default Agents;

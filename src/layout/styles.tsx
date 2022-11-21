@@ -7,9 +7,18 @@ export const useStyles = makeStyles({
   main: {
     width: "100%",
   },
-  content: {
+  contentRoot: {
+    position: "relative",
     height: "calc(100% - 60px)",
+  },
+  content: {
+    position: "absolute",
+    overflowY: "scroll",
     padding: "10px",
+    top: "0px",
+    left: "0px",
+    bottom: "0px",
+    right: "0px",
   },
   sidebar: {
     height: "100vh",

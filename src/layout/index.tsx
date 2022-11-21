@@ -87,8 +87,10 @@ const Layout = () => {
             <MenuIcon className={classes.menuIcon} />
           </IconButton>
         </Grid>
-        <Grid className={classes.content}>
-          <Outlet />
+        <Grid className={classes.contentRoot}>
+          <Grid className={classes.content}>
+            <Outlet />
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
