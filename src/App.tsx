@@ -15,7 +15,8 @@ import Sprays from "./pages/sprays";
 import Weapons from "./pages/weapons/intex";
 import Error from "./pages/error";
 import Home from "./pages/home";
-import { agentsLoader, agentDetailLoader } from "./loaders";
+import { agentsLoader, agentDetailLoader } from "./loaders/agents";
+import { weaponsLoader } from "./loaders/weapons";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,7 +32,7 @@ const router = createBrowserRouter(
       <Route path="/cards" element={<Cards />} />
       <Route path="/maps" element={<Maps />} />
       <Route path="/sprays" element={<Sprays />} />
-      <Route path="/weapons" element={<Weapons />} />
+      <Route path="/weapons" element={<Weapons />} loader={weaponsLoader} />
     </Route>
   )
 );
