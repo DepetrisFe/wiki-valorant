@@ -1,14 +1,15 @@
 import { Link, useLoaderData } from "react-router-dom";
-import { Grid, Typography } from "@mui/material";
+import { Agent } from "../../interfaces/agents";
 import { useStyles } from "./styles";
+import { Grid, Typography } from "@mui/material";
 
 const Agents = () => {
   const classes = useStyles();
-  const agents: any = useLoaderData();
+  const agents = useLoaderData() as Agent[];
 
   return (
     <Grid className={classes.root}>
-      {agents.map((agent: any) => (
+      {agents.map((agent: Agent) => (
         <Link key={agent.uuid} to={`${agent.uuid}`}>
           <Grid className={classes.imageContainer}>
             <img src={agent.displayIcon} className={classes.image} />

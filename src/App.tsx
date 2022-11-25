@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Layout from "./layout";
 import Agents from "./pages/agents";
-import AgentDetail from "./pages/agents/agentDetail";
+import AgentDetail from "./pages/agentDetail";
 import Buddies from "./pages/buddies";
 import Cards from "./pages/cards";
 import Maps from "./pages/maps";

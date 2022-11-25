@@ -1,10 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 import { Grid } from "@mui/material";
 import { useStyles } from "./styles";
+import { Agent } from "../../interfaces/agents";
 
 const AgentDetail = () => {
   const classes = useStyles();
-  const agentDetail: any = useLoaderData();
+  const agentDetail = useLoaderData() as Agent;
 
   return (
     <Grid>
