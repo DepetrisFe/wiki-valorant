@@ -17,6 +17,7 @@ import Error from "./pages/error";
 import Home from "./pages/home";
 import { agentsLoader, agentDetailLoader } from "./loaders/agents";
 import { weaponsLoader } from "./loaders/weapons";
+import { buddiesLoader } from "./loaders/buddies";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,7 +29,7 @@ const router = createBrowserRouter(
         element={<AgentDetail />}
         loader={agentDetailLoader}
       />
-      <Route path="/buddies" element={<Buddies />} />
+      <Route path="/buddies" element={<Buddies />} loader={buddiesLoader} />
       <Route path="/cards" element={<Cards />} />
       <Route path="/maps" element={<Maps />} />
       <Route path="/sprays" element={<Sprays />} />
