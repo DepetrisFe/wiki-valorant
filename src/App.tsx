@@ -13,10 +13,11 @@ import Cards from "./pages/cards";
 import Maps from "./pages/maps";
 import Sprays from "./pages/sprays";
 import Weapons from "./pages/weapons/intex";
+import WeaponDetail from "./pages/weaponDetail";
 import Error from "./pages/error";
 import Home from "./pages/home";
 import { agentsLoader, agentDetailLoader } from "./loaders/agents";
-import { weaponsLoader } from "./loaders/weapons";
+import { weaponsLoader, weaponDetailLoader } from "./loaders/weapons";
 import { buddiesLoader } from "./loaders/buddies";
 
 const router = createBrowserRouter(
@@ -34,6 +35,11 @@ const router = createBrowserRouter(
       <Route path="/maps" element={<Maps />} />
       <Route path="/sprays" element={<Sprays />} />
       <Route path="/weapons" element={<Weapons />} loader={weaponsLoader} />
+      <Route
+        path="/weapons/:id"
+        element={<WeaponDetail />}
+        loader={weaponDetailLoader}
+      />
     </Route>
   )
 );

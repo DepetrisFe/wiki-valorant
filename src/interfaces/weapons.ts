@@ -33,7 +33,7 @@ export interface Skin {
   displayName: string;
   themeUuid: string;
   contentTierUuid: null | string;
-  displayIcon: null | string;
+  displayIcon: string | undefined;
   wallpaper: null;
   assetPath: string;
   chromas: Chroma[];
@@ -91,4 +91,15 @@ export interface DamageRange {
   headDamage: number;
   bodyDamage: number;
   legDamage: number;
+}
+
+export interface Categories {
+  categoryName:
+    | "Heavy"
+    | "Rifle"
+    | "Shotgun"
+    | "Sidearm"
+    | "Sniper"
+    | "SMG"
+    | "Melee";
 }
