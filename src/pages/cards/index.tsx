@@ -1,4 +1,5 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, Pagination } from "@mui/material";
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Card } from "../../interfaces/cards";
 import { useStyles } from "./styles";
@@ -6,15 +7,38 @@ import { useStyles } from "./styles";
 const Cards = () => {
   const classes = useStyles();
   const cards = useLoaderData() as Card[];
+  const [page, setPage] = useState(1);
+  const rowsPerPage = 15;
+
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  };
 
   return (
     <Grid className={classes.root}>
-      {cards.map((card: Card) => (
-        <Grid key={card.uuid}>
-          <img src={card.displayIcon} alt={card.displayName} />
-          <Typography>{card.displayName}</Typography>
-        </Grid>
-      ))}
+      <Grid className={classes.main}>
+        {cards
+          .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+          .map((card: Card) => (
+            <Grid key={card.uuid} className={classes.imageContainer}>
+              <img
+                src={card.displayIcon}
+                alt={card.displayName}
+                className={classes.image}
+              />
+              {/* <Typography>{card.displayName}</Typography> */}
+            </Grid>
+          ))}
+      </Grid>
+      <Grid className={classes.paginationContainer}>
+        <Pagination
+          count={10}
+          page={page}
+          onChange={handleChange}
+          size="large"
+          className={classes.pagination}
+        />
+      </Grid>
     </Grid>
   );
 };
