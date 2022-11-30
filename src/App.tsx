@@ -20,6 +20,7 @@ import { agentsLoader, agentDetailLoader } from "./loaders/agents";
 import { weaponsLoader, weaponDetailLoader } from "./loaders/weapons";
 import { cardsLoader } from "./loaders/cards";
 import { buddiesLoader } from "./loaders/buddies";
+import { spraysLoader } from "./loaders/sprays";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,7 +35,7 @@ const router = createBrowserRouter(
       <Route path="/buddies" element={<Buddies />} loader={buddiesLoader} />
       <Route path="/cards" element={<Cards />} loader={cardsLoader} />
       <Route path="/maps" element={<Maps />} />
-      <Route path="/sprays" element={<Sprays />} />
+      <Route path="/sprays" element={<Sprays />} loader={spraysLoader} />
       <Route path="/weapons" element={<Weapons />} loader={weaponsLoader} />
       <Route
         path="/weapons/:id"
