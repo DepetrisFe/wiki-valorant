@@ -2,7 +2,9 @@ import { makeStyles } from "@mui/styles";
 
 export const useStyles = makeStyles({
   root: {
-    height: "100%",
+    position: "relative",
+    minHeight: "100%",
+    paddingBottom: "60px",
   },
   main: {
     display: "grid",
@@ -20,8 +22,11 @@ export const useStyles = makeStyles({
     objectFit: "contain",
   },
   paginationContainer: {
+    position: "absolute",
     display: "flex",
     justifyContent: "center",
+    width: "100%",
+    bottom: "10px",
   },
   pagination: {
     "& .MuiPaginationItem-root": {

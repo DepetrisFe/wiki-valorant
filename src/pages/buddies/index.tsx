@@ -8,7 +8,7 @@ const Buddies = () => {
   const classes = useStyles();
   const buddies = useLoaderData() as Buddie[];
   const [page, setPage] = useState(1);
-  const rowsPerPage = 50;
+  const rowsPerPage = 54;
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
