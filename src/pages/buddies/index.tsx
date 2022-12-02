@@ -8,7 +8,7 @@ const Buddies = () => {
   const classes = useStyles();
   const buddies = useLoaderData() as Buddie[];
   const [page, setPage] = useState(1);
-  const rowsPerPage = 54;
+  const rowsPerPage = 50;
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
@@ -18,7 +18,7 @@ const Buddies = () => {
     <Grid className={classes.root}>
       <Grid className={classes.main}>
         {buddies
-          .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+          .slice((page - 1) * rowsPerPage, page * rowsPerPage)
           .map((buddie: Buddie) => (
             <Grid key={buddie.uuid} className={classes.imageContainer}>
               <img
@@ -31,7 +31,7 @@ const Buddies = () => {
       </Grid>
       <Grid className={classes.paginationContainer}>
         <Pagination
-          count={Math.floor(buddies.length / rowsPerPage)}
+          count={Math.ceil(buddies.length / rowsPerPage)}
           page={page}
           onChange={handleChange}
           size="large"

@@ -18,7 +18,7 @@ const Cards = () => {
     <Grid className={classes.root}>
       <Grid className={classes.main}>
         {cards
-          .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+          .slice((page - 1) * rowsPerPage, page * rowsPerPage)
           .map((card: Card) => (
             <Grid key={card.uuid} className={classes.imageContainer}>
               <img
@@ -32,7 +32,7 @@ const Cards = () => {
       </Grid>
       <Grid className={classes.paginationContainer}>
         <Pagination
-          count={Math.floor(cards.length / rowsPerPage)}
+          count={Math.ceil(cards.length / rowsPerPage)}
           page={page}
           onChange={handleChange}
           size="large"
