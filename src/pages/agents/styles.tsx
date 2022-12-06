@@ -14,13 +14,14 @@ export const useStyles = makeStyles({
     margin: "20px 0px",
     transition: "transform 0.5s",
     "&:hover": {
-      transform: "scale(1.05)",
+      transform: "scale(1.03)",
     },
   },
   frame: {
     position: "absolute",
     height: "100%",
     width: "100%",
+    opacity: "0.7",
   },
   image: {
     position: "absolute",
