@@ -1,11 +1,13 @@
 export interface Card {
-  uuid: string;
+  assetPath: string;
+  displayIcon: string;
   displayName: string;
   isHiddenIfNotOwned: boolean;
-  themeUuid: null;
-  displayIcon: string;
-  assetPath: string;
+  largeArt: string;
+  smallArt: string;
   levels: Level[];
+  themeUuid: null;
+  uuid: string;
 }
 
 export interface Level {

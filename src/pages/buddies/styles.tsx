@@ -8,18 +8,21 @@ export const useStyles = makeStyles({
   },
   main: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, 200px)",
+    gridTemplateColumns: "repeat(auto-fill, 220px)",
     gridGap: "2rem",
     justifyContent: "center",
+    paddingTop: "30px",
   },
   imageContainer: {
-    height: "150px",
-    width: "150px",
+    height: "220px",
+    width: "220px",
+    padding: "10px 0px",
   },
   image: {
     height: "100%",
     width: "100%",
     objectFit: "contain",
+    filter: "drop-shadow(7px -3px 10px #000)",
   },
   paginationContainer: {
     position: "absolute",

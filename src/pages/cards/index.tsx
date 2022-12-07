@@ -22,7 +22,7 @@ const Cards = () => {
           .map((card: Card) => (
             <Grid key={card.uuid} className={classes.imageContainer}>
               <img
-                src={card.displayIcon}
+                src={card.largeArt}
                 alt={card.displayName}
                 className={classes.image}
               />

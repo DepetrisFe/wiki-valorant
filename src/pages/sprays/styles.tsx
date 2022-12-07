@@ -13,8 +13,8 @@ export const useStyles = makeStyles({
     justifyContent: "center",
   },
   imageContainer: {
-    height: "150px",
-    width: "150px",
+    height: "200px",
+    width: "200px",
   },
   image: {
     height: "100%",
