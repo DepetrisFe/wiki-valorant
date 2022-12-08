@@ -1,7 +1,7 @@
 import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
 import { Link, useNavigate, Outlet } from "react-router-dom";
 import { useStyles } from "./styles";
-import { Grid, Box, IconButton } from "@mui/material";
+import { Grid, Box, IconButton, Typography } from "@mui/material";
 import image from "../assets/drawer-background.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
@@ -47,37 +47,37 @@ const Layout = () => {
             routerLink={<Link to="/agents" />}
             icon={<GiBowman size={27} />}
           >
-            Agents
+            <Typography fontSize={18}>Agents</Typography>
           </MenuItem>
           <MenuItem
             routerLink={<Link to="/buddies" />}
             icon={<GiGingerbreadMan size={27} />}
           >
-            Buddies
+            <Typography fontSize={18}>Buddies</Typography>
           </MenuItem>
           <MenuItem
             routerLink={<Link to="/cards" />}
             icon={<GiCardRandom size={27} />}
           >
-            Cards
+            <Typography fontSize={18}>Cards</Typography>
           </MenuItem>
           <MenuItem
             routerLink={<Link to="/maps" />}
             icon={<GiModernCity size={27} />}
           >
-            Maps
+            <Typography fontSize={18}>Maps</Typography>
           </MenuItem>
           <MenuItem
             routerLink={<Link to="/sprays" />}
             icon={<GiSpray size={27} />}
           >
-            Sprays
+            <Typography fontSize={18}>Sprays</Typography>
           </MenuItem>
           <MenuItem
             routerLink={<Link to="/weapons" />}
             icon={<GiMac10 size={27} />}
           >
-            Weapons
+            <Typography fontSize={18}>Weapons</Typography>
           </MenuItem>
         </Menu>
       </Sidebar>

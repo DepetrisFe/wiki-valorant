@@ -6,7 +6,15 @@ import App from "./App";
 import "./index.css";
 import { createTheme } from "@mui/material/styles";
 
-const theme = createTheme();
+const theme = createTheme({
+  typography: {
+    fontFamily: ["Ubuntu", "sans-serif"].join(","),
+    fontSize: 16,
+    fontWeightRegular: 300,
+    fontWeightMedium: 400,
+    fontWeightBold: 700,
+  },
+});
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

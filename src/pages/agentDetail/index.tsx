@@ -11,27 +11,28 @@ const AgentDetail = () => {
 
   return (
     <Grid container className={classes.root}>
-      <Grid item xs={6} className={classes.main}>
+      <Grid item xs={6}>
         <Grid className={classes.abilitiesContainer}>
-          <Grid className={classes.test}>
-            {agentDetail.abilities.map((ability: Ability, index) => (
-              <Box
-                key={ability.displayName}
-                className={classes.abilityContainer}
-              >
-                <img
-                  src={ability.displayIcon}
-                  alt={ability.displayName}
-                  className={classes.skillIcon}
-                  onClick={() => setSkill(index)}
-                />
-              </Box>
-            ))}
-          </Grid>
-          <Box className={classes.abilityDescription}>
-            {agentDetail.abilities[skill].description}
-          </Box>
+          {agentDetail.abilities.map((ability: Ability, index) => (
+            <Box
+              key={ability.displayName}
+              className={classes.abilityImgContainer}
+            >
+              <img
+                src={ability.displayIcon}
+                alt={ability.displayName}
+                className={classes.abilityImg}
+                onClick={() => setSkill(index)}
+              />
+            </Box>
+          ))}
         </Grid>
+        <Box>
+          <Typography fontWeight="bold" fontSize={25}>
+            {agentDetail.abilities[skill].displayName.toUpperCase()}
+          </Typography>
+          <Typography>{agentDetail.abilities[skill].description}</Typography>
+        </Box>
       </Grid>
     </Grid>
   );
