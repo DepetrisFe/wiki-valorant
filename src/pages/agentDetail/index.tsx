@@ -9,6 +9,7 @@ const AgentDetail = () => {
   const agentDetail = useLoaderData() as Agent;
   const [skill, setSkill] = useState(0);
 
+  console.log(agentDetail);
   return (
     <Grid container className={classes.root}>
       <Grid item xs={6}>
@@ -16,7 +17,11 @@ const AgentDetail = () => {
           {agentDetail.abilities.map((ability: Ability, index) => (
             <Box
               key={ability.displayName}
-              className={classes.abilityImgContainer}
+              className={
+                index === skill
+                  ? classes.abilityImgContainerSelected
+                  : classes.abilityImgContainer
+              }
             >
               <img
                 src={ability.displayIcon}
@@ -27,11 +32,36 @@ const AgentDetail = () => {
             </Box>
           ))}
         </Grid>
-        <Box>
+        <Box className={classes.abilitiesDescriptionContainer}>
           <Typography fontWeight="bold" fontSize={25}>
             {agentDetail.abilities[skill].displayName.toUpperCase()}
           </Typography>
           <Typography>{agentDetail.abilities[skill].description}</Typography>
+        </Box>
+        <Box>
+          <Box className={classes.roleContainer}>
+            <img
+              src={agentDetail.role.displayIcon}
+              alt={agentDetail.role.displayName}
+              className={classes.roleIconImg}
+            />
+            <Typography fontWeight="bold" fontSize={25}>
+              {agentDetail.role.displayName.toUpperCase()}
+            </Typography>
+          </Box>
+          <Typography>{agentDetail.role.description}</Typography>
+        </Box>
+      </Grid>
+      <Grid item xs={6}>
+        <Box className={classes.fullPortraitContainer}>
+          <img
+            src={agentDetail.fullPortrait}
+            alt={agentDetail.displayName}
+            className={classes.fullPortraitImg}
+          />
+          <Typography fontWeight="bold" className={classes.agentName}>
+            {agentDetail.displayName.toUpperCase()}
+          </Typography>
         </Box>
       </Grid>
     </Grid>
