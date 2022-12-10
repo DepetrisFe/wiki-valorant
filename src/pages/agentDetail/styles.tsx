@@ -4,10 +4,47 @@ export const useStyles = makeStyles({
   root: {
     minHeight: "100%",
   },
+  agentDetailContainer: {
+    display: "grid",
+    padding: "20px",
+  },
+  agentNameContainer: {
+    display: "flex",
+    alignItems: "center",
+    position: "relative",
+    height: "120px",
+  },
+  descriptionContainer: {
+    marginBottom: "10px",
+  },
+  roleImg: {
+    position: "absolute",
+    height: "100px",
+    width: "100px",
+    objectFit: "contain",
+    opacity: "0.3",
+    top: "0px",
+  },
+  roleName: {
+    position: "absolute",
+    top: "25px",
+    left: "50px",
+  },
+  roleDescriptionContainer: {
+    padding: "10px",
+  },
+  agentName: {
+    position: "absolute",
+    top: "30px",
+    left: "45px",
+  },
   abilityImgContainer: {
     padding: "10px",
     width: "90px",
     height: "90px",
+  },
+  abilityDescriptionContainer: {
+    padding: "10px",
   },
   abilityImgContainerSelected: {
     padding: "10px",
@@ -17,11 +54,7 @@ export const useStyles = makeStyles({
   },
   abilitiesContainer: {
     display: "flex",
-    justifyContent: "center",
-  },
-  abilitiesDescriptionContainer: {
-    border: "2px solid rgb(255, 255, 255, 0.3)",
-    padding: "5px",
+    justifyContent: "space-around",
   },
   abilityImg: {
     height: "100%",
@@ -45,11 +78,8 @@ export const useStyles = makeStyles({
     margin: "0px 10px",
   },
   fullPortraitContainer: {
-    position: "relative",
-  },
-  agentName: {
-    position: "absolute",
-    top: "0",
-    left: "0",
+    display: "flex",
+    alignItems: "center",
+    height: "100%",
   },
 });
