@@ -62,10 +62,6 @@ export const useStyles = makeStyles({
     objectFit: "contain",
     cursor: "pointer",
   },
-  fullPortraitImg: {
-    width: "100%",
-    height: "auto",
-  },
   roleContainer: {
     display: "flex",
     alignItems: "center",
@@ -77,9 +73,24 @@ export const useStyles = makeStyles({
     width: "40px",
     margin: "0px 10px",
   },
-  fullPortraitContainer: {
+  agentImageContainer: {
     display: "flex",
+    justifyContent: "center",
     alignItems: "center",
+    position: "relative",
+  },
+  backgroundImg: {
+    position: "absolute",
     height: "100%",
+    width: "100%",
+    objectFit: "cover",
+    opacity: "0.3",
+  },
+  fullPortraitImg: {
+    position: "absolute",
+    height: "90%",
+    width: "90%",
+    objectFit: "cover",
+    filter: "drop-shadow(7px -3px 10px #000)",
   },
 });

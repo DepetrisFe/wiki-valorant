@@ -75,14 +75,17 @@ const AgentDetail = () => {
           </Box>
         </Box>
       </Grid>
-      <Grid item xs={6}>
-        <Box className={classes.fullPortraitContainer}>
-          <img
-            src={agentDetail.fullPortrait}
-            alt={agentDetail.displayName}
-            className={classes.fullPortraitImg}
-          />
-        </Box>
+      <Grid item xs={6} className={classes.agentImageContainer}>
+        <img
+          src={agentDetail.background}
+          alt="agent background"
+          className={classes.backgroundImg}
+        />
+        <img
+          src={agentDetail.fullPortrait}
+          alt={agentDetail.displayName}
+          className={classes.fullPortraitImg}
+        />
       </Grid>
     </Grid>
   );
