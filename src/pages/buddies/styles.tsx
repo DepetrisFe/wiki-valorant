@@ -13,16 +13,27 @@ export const useStyles = makeStyles({
     justifyContent: "center",
     paddingTop: "30px",
   },
+  nameContainer: {
+    backgroundColor: "rgb(39, 39, 47, 0.7)",
+    padding: "0px 2px 15px 2px",
+    maxHeight: "100%",
+  },
+  buddyName: {
+    height: "100%",
+    writingMode: "vertical-lr",
+    transform: "rotate(-180deg)",
+  },
   imageContainer: {
-    height: "220px",
+    display: "flex",
+    backgroundColor: "rgb(39, 39, 47, 0.3)",
+    height: "280px",
     width: "220px",
-    padding: "10px 0px",
   },
   image: {
     height: "100%",
     width: "100%",
     objectFit: "contain",
-    filter: "drop-shadow(7px -3px 10px #000)",
+    filter: "drop-shadow(0px -3px 10px #000)",
   },
   paginationContainer: {
     position: "absolute",

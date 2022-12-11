@@ -1,4 +1,4 @@
-import { Grid, Typography, Pagination } from "@mui/material";
+import { Grid, Typography, Pagination, Box } from "@mui/material";
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Card } from "../../interfaces/cards";
@@ -20,14 +20,18 @@ const Cards = () => {
         {cards
           .slice((page - 1) * rowsPerPage, page * rowsPerPage)
           .map((card: Card) => (
-            <Grid key={card.uuid} className={classes.imageContainer}>
+            <Box key={card.uuid} className={classes.imageContainer}>
+              <Box className={classes.cardNameContainer}>
+                <Typography fontSize={17} className={classes.cardName}>
+                  {card.displayName}
+                </Typography>
+              </Box>
               <img
                 src={card.largeArt}
                 alt={card.displayName}
                 className={classes.image}
               />
-              {/* <Typography>{card.displayName}</Typography> */}
-            </Grid>
+            </Box>
           ))}
       </Grid>
       <Grid className={classes.paginationContainer}>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Grid, Pagination } from "@mui/material";
+import { Box, Grid, Pagination, Typography } from "@mui/material";
 import { useLoaderData } from "react-router-dom";
 import { Buddie } from "../../interfaces/buddies";
 import { useStyles } from "./styles";
@@ -14,6 +14,10 @@ const Buddies = () => {
     setPage(value);
   };
 
+  const trimString = (str: string, lng: number) => {
+    return str.length > lng ? str.substring(0, lng - 3) + "..." : str;
+  };
+
   return (
     <Grid className={classes.root}>
       <Grid className={classes.main}>
@@ -21,11 +25,18 @@ const Buddies = () => {
           .slice((page - 1) * rowsPerPage, page * rowsPerPage)
           .map((buddie: Buddie) => (
             <Grid key={buddie.uuid} className={classes.imageContainer}>
-              <img
-                src={buddie.displayIcon}
-                alt={buddie.displayName}
-                className={classes.image}
-              />
+              <Box className={classes.nameContainer}>
+                <Typography fontSize={16} className={classes.buddyName}>
+                  {trimString(buddie.displayName, 30)}
+                </Typography>
+              </Box>
+              <Box>
+                <img
+                  src={buddie.displayIcon}
+                  alt={buddie.displayName}
+                  className={classes.image}
+                />
+              </Box>
             </Grid>
           ))}
       </Grid>

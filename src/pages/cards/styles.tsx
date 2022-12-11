@@ -13,6 +13,7 @@ export const useStyles = makeStyles({
     justifyContent: "center",
   },
   imageContainer: {
+    display: "flex",
     height: "400px",
     width: "190px",
   },
@@ -20,6 +21,15 @@ export const useStyles = makeStyles({
     height: "100%",
     width: "100%",
     objectFit: "contain",
+  },
+  cardNameContainer: {
+    backgroundColor: "rgb(39, 39, 47, 0.7)",
+    padding: "0px 2px 15px 2px",
+  },
+  cardName: {
+    height: "100%",
+    writingMode: "vertical-lr",
+    transform: "rotate(-180deg)",
   },
   paginationContainer: {
     position: "absolute",

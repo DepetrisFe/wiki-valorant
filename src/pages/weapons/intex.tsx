@@ -20,7 +20,9 @@ const Weapons = () => {
     return (
       <Grid className={classes.rootCategory}>
         <Box className={classes.titleContainer}>
-          <p>{categoryName.toUpperCase()}</p>
+          <Typography fontWeight="normal">
+            {categoryName.toUpperCase()}
+          </Typography>
         </Box>
         <Box>
           {groupByCategory[`EEquippableCategory::${categoryName}`].map(
