@@ -4,6 +4,7 @@ import { useStyles } from "./styles";
 import { Grid, Box, IconButton, Typography } from "@mui/material";
 import image from "../assets/drawer-background.png";
 import MenuIcon from "@mui/icons-material/Menu";
+import { MenuOption } from "../interfaces/layout";
 import {
   GiMac10,
   GiBowman,
@@ -17,6 +18,20 @@ const Layout = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   const { collapseSidebar } = useProSidebar();
+
+  const menuOptions: MenuOption[] = [
+    { id: 1, path: "/agents", icon: <GiBowman size={27} />, label: "Agents" },
+    {
+      id: 2,
+      path: "/buddies",
+      icon: <GiGingerbreadMan size={27} />,
+      label: "Buddies",
+    },
+    { id: 3, path: "/cards", icon: <GiCardRandom size={27} />, label: "Cards" },
+    { id: 4, path: "/maps", icon: <GiModernCity size={27} />, label: "Maps" },
+    { id: 5, path: "/sprays", icon: <GiSpray size={27} />, label: "Sprays" },
+    { id: 6, path: "/weapons", icon: <GiMac10 size={27} />, label: "Weapons" },
+  ];
 
   return (
     <Grid className={classes.root}>
@@ -43,42 +58,15 @@ const Layout = () => {
             },
           })}
         >
-          <MenuItem
-            routerLink={<Link to="/agents" />}
-            icon={<GiBowman size={27} />}
-          >
-            <Typography fontSize={18}>Agents</Typography>
-          </MenuItem>
-          <MenuItem
-            routerLink={<Link to="/buddies" />}
-            icon={<GiGingerbreadMan size={27} />}
-          >
-            <Typography fontSize={18}>Buddies</Typography>
-          </MenuItem>
-          <MenuItem
-            routerLink={<Link to="/cards" />}
-            icon={<GiCardRandom size={27} />}
-          >
-            <Typography fontSize={18}>Cards</Typography>
-          </MenuItem>
-          <MenuItem
-            routerLink={<Link to="/maps" />}
-            icon={<GiModernCity size={27} />}
-          >
-            <Typography fontSize={18}>Maps</Typography>
-          </MenuItem>
-          <MenuItem
-            routerLink={<Link to="/sprays" />}
-            icon={<GiSpray size={27} />}
-          >
-            <Typography fontSize={18}>Sprays</Typography>
-          </MenuItem>
-          <MenuItem
-            routerLink={<Link to="/weapons" />}
-            icon={<GiMac10 size={27} />}
-          >
-            <Typography fontSize={18}>Weapons</Typography>
-          </MenuItem>
+          {menuOptions.map((item) => (
+            <MenuItem
+              routerLink={<Link to={item.path} />}
+              icon={item.icon}
+              key={item.id}
+            >
+              <Typography fontSize={18}>{item.label}</Typography>
+            </MenuItem>
+          ))}
         </Menu>
       </Sidebar>
       <Grid className={classes.main}>
