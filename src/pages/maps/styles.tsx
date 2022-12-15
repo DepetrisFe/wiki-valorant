@@ -36,4 +36,14 @@ export const useStyles = makeStyles({
   mapName: {
     fontFamily: "Impact !important",
   },
+  //TODO: hide scroll bars, change to dinamic sizes
+  mapDialog: {
+    width: "600px",
+    height: "600px",
+  },
+  mapPreview: {
+    height: "100%",
+    width: "100%",
+    objectFit: "contain",
+  },
 });
