@@ -1,7 +1,19 @@
+import { useState } from "react";
 import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
 import { Link, useNavigate, Outlet } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 import { useStyles } from "./styles";
-import { Grid, Box, IconButton, Typography } from "@mui/material";
+import {
+  Grid,
+  Box,
+  IconButton,
+  Typography,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 import image from "../assets/drawer-background.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import { MenuOption } from "../interfaces/layout";
@@ -13,11 +25,14 @@ import {
   GiModernCity,
   GiSpray,
 } from "react-icons/gi";
+import Drawer from "@mui/material/Drawer";
 
 const Layout = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   const { collapseSidebar } = useProSidebar();
+  const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false);
+  const isMobile = useMediaQuery({ query: "(max-width: 900px)" });
 
   const menuOptions: MenuOption[] = [
     { id: 1, path: "/agents", icon: <GiBowman size={27} />, label: "Agents" },
@@ -33,45 +48,95 @@ const Layout = () => {
     { id: 6, path: "/weapons", icon: <GiMac10 size={27} />, label: "Weapons" },
   ];
 
+  const toggleMobileDrawer =
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
+
+      setOpenMobileMenu(open);
+    };
+
   return (
     <Grid className={classes.root}>
-      <Sidebar
-        className={classes.sidebar}
-        collapsedWidth="0px"
-        backgroundColor="rgb(39, 39, 47, 0.8)"
-        image={image}
-      >
-        <Box className={classes.logoContainer}>
-          <img
-            src="https://i.postimg.cc/4xpVmsFS/radianite3521.png"
-            alt="randianite logo"
-            className={classes.logo}
-            onClick={() => {
-              navigate("/");
-            }}
-          />
-        </Box>
-        <Menu
-          renderMenuItemStyles={() => ({
-            ".menu-anchor: hover": {
-              backgroundColor: "#1f1f24",
-            },
-          })}
+      {!isMobile && (
+        <Sidebar
+          className={classes.sidebar}
+          collapsedWidth="0px"
+          backgroundColor="rgb(39, 39, 47, 0.8)"
+          image={image}
         >
-          {menuOptions.map((item) => (
-            <MenuItem
-              routerLink={<Link to={item.path} />}
-              icon={item.icon}
-              key={item.id}
-            >
-              <Typography fontSize={18}>{item.label}</Typography>
-            </MenuItem>
-          ))}
-        </Menu>
-      </Sidebar>
+          <Box className={classes.logoContainer}>
+            <img
+              src="https://i.postimg.cc/4xpVmsFS/radianite3521.png"
+              alt="randianite logo"
+              className={classes.logo}
+              onClick={() => {
+                navigate("/");
+              }}
+            />
+          </Box>
+          <Menu
+            renderMenuItemStyles={() => ({
+              ".menu-anchor: hover": {
+                backgroundColor: "#1f1f24",
+              },
+            })}
+          >
+            {menuOptions.map((item) => (
+              <MenuItem
+                routerLink={<Link to={item.path} />}
+                icon={item.icon}
+                key={item.id}
+              >
+                <Typography fontSize={18}>{item.label}</Typography>
+              </MenuItem>
+            ))}
+          </Menu>
+        </Sidebar>
+      )}
+      {isMobile && (
+        <Drawer
+          anchor="top"
+          open={openMobileMenu}
+          onClose={toggleMobileDrawer(false)}
+        >
+          <Box
+            sx={{ background: "rgb(39, 39, 47)" }}
+            role="presentation"
+            onClick={toggleMobileDrawer(false)}
+            onKeyDown={toggleMobileDrawer(false)}
+          >
+            <List>
+              {menuOptions.map((item) => (
+                <ListItem
+                  key={item.id}
+                  component={Link}
+                  to={item.path}
+                  disablePadding
+                >
+                  <ListItemButton>
+                    <ListItemIcon>{item.icon}</ListItemIcon>
+                    <ListItemText primary={item.label} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </Drawer>
+      )}
       <Grid className={classes.main}>
         <Grid className={classes.navbar}>
-          <IconButton onClick={() => collapseSidebar()} disableRipple>
+          <IconButton
+            onClick={
+              isMobile ? () => setOpenMobileMenu(true) : () => collapseSidebar()
+            }
+            disableRipple
+          >
             <MenuIcon className={classes.menuIcon} />
           </IconButton>
         </Grid>
