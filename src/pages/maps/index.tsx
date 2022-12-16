@@ -9,6 +9,9 @@ const Maps = () => {
   const maps = useLoaderData() as Map[];
   const [mapIndex, setMapIndex] = useState<number>(0);
   const [open, setOpen] = useState<boolean>(false);
+  const filteredMaps = maps.filter(
+    (map: Map) => map.displayName !== "Campo de tiro"
+  );
 
   const handleClickOpen = (index: number) => {
     setMapIndex(index);
@@ -21,7 +24,7 @@ const Maps = () => {
 
   return (
     <Grid className={classes.root}>
-      {maps.map((map: Map, index) => (
+      {filteredMaps.map((map: Map, index) => (
         <Grid
           className={classes.imageContainer}
           key={map.uuid}
@@ -38,8 +41,8 @@ const Maps = () => {
       <Dialog open={open} onClose={handleClose}>
         <Box className={classes.mapDialog}>
           <img
-            src={maps[mapIndex].displayIcon}
-            alt={maps[mapIndex].displayName}
+            src={filteredMaps[mapIndex].displayIcon}
+            alt={filteredMaps[mapIndex].displayName}
             className={classes.mapPreview}
           />
         </Box>
