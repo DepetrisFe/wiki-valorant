@@ -36,4 +36,15 @@ export const useStyles = makeStyles({
   mapName: {
     fontFamily: "Impact !important",
   },
+  mapDialog: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#32333d",
+  },
+  mapPreview: {
+    height: "90%",
+    width: "90%",
+    objectFit: "contain",
+  },
 });
