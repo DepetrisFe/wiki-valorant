@@ -118,9 +118,12 @@ const Layout = () => {
                   component={Link}
                   to={item.path}
                   disablePadding
+                  className={classes.mobileMenuItem}
                 >
                   <ListItemButton>
-                    <ListItemIcon>{item.icon}</ListItemIcon>
+                    <ListItemIcon className={classes.mobileMenuIcon}>
+                      {item.icon}
+                    </ListItemIcon>
                     <ListItemText primary={item.label} />
                   </ListItemButton>
                 </ListItem>
@@ -141,7 +144,7 @@ const Layout = () => {
           </IconButton>
         </Grid>
         <Grid className={classes.contentRoot}>
-          <Grid className={classes.content}>
+          <Grid className={isMobile ? classes.mobileContent : classes.content}>
             <Outlet />
           </Grid>
         </Grid>

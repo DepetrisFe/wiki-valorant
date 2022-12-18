@@ -20,6 +20,9 @@ export const useStyles = makeStyles({
     bottom: "0px",
     right: "0px",
   },
+  mobileContent: {
+    padding: "10px",
+  },
   sidebar: {
     height: "100vh",
     borderRight: "none !important",
@@ -44,5 +47,11 @@ export const useStyles = makeStyles({
   menuIcon: {
     transform: "scale(1.3)",
     color: "rgba(255, 255, 255, 0.87)",
+  },
+  mobileMenuItem: {
+    color: "rgba(255, 255, 255, 0.87)",
+  },
+  mobileMenuIcon: {
+    color: "rgba(255, 255, 255, 0.87) !important",
   },
 });
