@@ -8,6 +8,7 @@ export const useStyles = makeStyles((theme: Theme) => {
     },
     rootCategory: {
       padding: "3px",
+      width: "100%",
     },
     titleContainer: {
       display: "flex",
@@ -30,6 +31,12 @@ export const useStyles = makeStyles((theme: Theme) => {
     image: {
       transform: "scale(0.8)",
       [theme.breakpoints.down("xl")]: {
+        transform: "scale(0.5)",
+      },
+      [theme.breakpoints.down("lg")]: {
+        transform: "scale(0.4)",
+      },
+      [theme.breakpoints.down(700)]: {
         transform: "scale(0.5)",
       },
     },

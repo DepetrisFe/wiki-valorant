@@ -1,4 +1,5 @@
 import { Link, useLoaderData } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 import { Weapon, Categories } from "../../interfaces/weapons";
 import { Box, Grid, Typography } from "@mui/material";
 import { useStyles } from "./styles";
@@ -6,6 +7,7 @@ import { useStyles } from "./styles";
 const Weapons = () => {
   const classes = useStyles();
   const weapons = useLoaderData() as Weapon[];
+  const isMobile = useMediaQuery({ query: "(max-width: 700px)" });
 
   //groups weapons by category
   const groupByCategory = weapons.reduce(function (r, a) {
@@ -48,21 +50,36 @@ const Weapons = () => {
 
   return (
     <Grid container className={classes.root}>
-      <Grid item xs={2}>
-        <Category categoryName="Sidearm" />
-      </Grid>
-      <Grid item xs={3}>
-        <Category categoryName="SMG" />
-        <Category categoryName="Shotgun" />
-      </Grid>
-      <Grid item xs={3}>
-        <Category categoryName="Rifle" />
-        <Category categoryName="Melee" />
-      </Grid>
-      <Grid item xs={4}>
-        <Category categoryName="Sniper" />
-        <Category categoryName="Heavy" />
-      </Grid>
+      {isMobile && (
+        <>
+          <Category categoryName="Sidearm" />
+          <Category categoryName="SMG" />
+          <Category categoryName="Shotgun" />
+          <Category categoryName="Rifle" />
+          <Category categoryName="Melee" />
+          <Category categoryName="Sniper" />
+          <Category categoryName="Heavy" />
+        </>
+      )}
+      {!isMobile && (
+        <>
+          <Grid item xs={2}>
+            <Category categoryName="Sidearm" />
+          </Grid>
+          <Grid item xs={3}>
+            <Category categoryName="SMG" />
+            <Category categoryName="Shotgun" />
+          </Grid>
+          <Grid item xs={3}>
+            <Category categoryName="Rifle" />
+            <Category categoryName="Melee" />
+          </Grid>
+          <Grid item xs={4}>
+            <Category categoryName="Sniper" />
+            <Category categoryName="Heavy" />
+          </Grid>
+        </>
+      )}
     </Grid>
   );
 };
