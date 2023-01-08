@@ -11,7 +11,7 @@ const AgentDetail = () => {
 
   return (
     <Grid container className={classes.root}>
-      <Grid item xs={6} className={classes.agentDetailContainer}>
+      <Grid item xs={12} lg={6} className={classes.agentDetailContainer}>
         <Box className={classes.agentNameContainer}>
           <img
             src={agentDetail.role.displayIcon}
@@ -75,7 +75,7 @@ const AgentDetail = () => {
           </Box>
         </Box>
       </Grid>
-      <Grid item xs={6} className={classes.agentImageContainer}>
+      <Grid item xs={12} lg={6} className={classes.agentImageContainer}>
         <img
           src={agentDetail.background}
           alt="agent background"
