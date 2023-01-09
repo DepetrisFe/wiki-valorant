@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 import { Spray } from "../../interfaces/sprays";
 import { useStyles } from "./styles";
 import { Grid, Pagination } from "@mui/material";
@@ -8,6 +9,7 @@ const Sprays = () => {
   const classes = useStyles();
   const sprays = useLoaderData() as Spray[];
   const [page, setPage] = useState(1);
+  const isMobile = useMediaQuery({ query: "(max-width: 900px)" });
   const rowsPerPage = 50;
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -38,7 +40,7 @@ const Sprays = () => {
           count={Math.ceil(sprays.length / rowsPerPage)}
           page={page}
           onChange={handleChange}
-          size="large"
+          size={isMobile ? "small" : "large"}
           className={classes.pagination}
         />
       </Grid>

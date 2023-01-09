@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { Box, Grid, Pagination, Typography } from "@mui/material";
+import { useMediaQuery } from "react-responsive";
 import { useLoaderData } from "react-router-dom";
 import { Buddie } from "../../interfaces/buddies";
+import { Box, Grid, Pagination, Typography } from "@mui/material";
 import { useStyles } from "./styles";
 
 const Buddies = () => {
   const classes = useStyles();
   const buddies = useLoaderData() as Buddie[];
   const [page, setPage] = useState(1);
+  const isMobile = useMediaQuery({ query: "(max-width: 900px)" });
   const rowsPerPage = 50;
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -45,7 +47,7 @@ const Buddies = () => {
           count={Math.ceil(buddies.length / rowsPerPage)}
           page={page}
           onChange={handleChange}
-          size="large"
+          size={isMobile ? "small" : "large"}
           className={classes.pagination}
         />
       </Grid>

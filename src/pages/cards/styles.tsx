@@ -4,7 +4,8 @@ export const useStyles = makeStyles({
   root: {
     position: "relative",
     minHeight: "100%",
-    paddingBottom: "60px",
+    paddingBottom: "4rem",
+    paddingTop: "1rem",
   },
   main: {
     display: "grid",

@@ -1,13 +1,15 @@
-import { Grid, Typography, Pagination, Box } from "@mui/material";
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import { Card } from "../../interfaces/cards";
+import { useLoaderData } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 import { useStyles } from "./styles";
+import { Grid, Typography, Pagination, Box } from "@mui/material";
 
 const Cards = () => {
   const classes = useStyles();
   const cards = useLoaderData() as Card[];
   const [page, setPage] = useState(1);
+  const isMobile = useMediaQuery({ query: "(max-width: 900px)" });
   const rowsPerPage = 50;
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -39,7 +41,7 @@ const Cards = () => {
           count={Math.ceil(cards.length / rowsPerPage)}
           page={page}
           onChange={handleChange}
-          size="large"
+          size={isMobile ? "small" : "large"}
           className={classes.pagination}
         />
       </Grid>
