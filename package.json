@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "http://depetrisfe.github.io/wiki-valorant",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
