@@ -1,7 +1,6 @@
 import {
-  createBrowserRouter,
   createRoutesFromElements,
-  Routes,
+  createHashRouter,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -23,7 +22,7 @@ import { buddiesLoader } from "./loaders/buddies";
 import { spraysLoader } from "./loaders/sprays";
 import { mapsLoader } from "./loaders/maps";
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />} errorElement={<Error />}>
       <Route index element={<Home />} />
